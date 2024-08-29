@@ -1,4 +1,9 @@
-<div class="lm-animated-bg" style="background-image: url(img/main_bg.png);"></div>
+---
+import bg from '../assets/img/main_bg.png';
+
+---
+
+<div class="lm-animated-bg" style={`background-image: url(${bg.src});`}></div>
 <div class="preloader">
     <div class="preloader-animation">
         <div class="preloader-spinner">
