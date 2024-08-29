@@ -1,50 +1,48 @@
 ---
+import 'modern-css-reset';
+import 'bootstrap/dist/css/bootstrap-grid.min.css';
+import 'animate.css';
+import 'perfect-scrollbar/css/perfect-scrollbar.css';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'magnific-popup/dist/magnific-popup.css';
+import 'lightbox2/dist/css/lightbox.css';
+
+import '../assets/css/main.css';
+import '../assets/css/style.css';
+import '../assets/fonts/linear-icons-font/style.css';
+import '../assets/fonts/fontawesome-free-5.12.1-web/css/all.min.css';
+
+
+import Header from "../components/Preloader.astro";
+import Navigation from "../components/Navigation.astro";
+import MetaData from "../components/MetaData.astro";
+import NavArrow from "../components/NavArrow.astro";
 interface Props {
 	title: string;
+	name: string;
 }
 
-const { title } = Astro.props;
+const { title, name} = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<MetaData />
+<body>
+	<Header />
+	<div class="page">
+		<div class="page-content">
+			<Header />
+			<Navigation />
+			<NavArrow />
+			<div class="content-area">
+				<div class="animated-sections">
+					<slot />
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
 </style>
